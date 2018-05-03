@@ -1,0 +1,18 @@
+version: '3'
+services:
+  node-demo:
+    image: samedwards89/node-demo
+    build: .
+    command: node index.js
+    ports:
+      - 3000:3000
+    depends_on:
+      - "mongo"
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+  adminmongo:
+    image: "mrvautin/adminmongo"
+    ports:
+      - "1234:1234"
